@@ -6,7 +6,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navigation from "./components/Navigation";
 import Landing from "./pages/Landing";
 import Dashboard from "./pages/Dashboard";
+import CategorizedDashboard from "./pages/CategorizedDashboard";
+import CategoryFeed from "./pages/CategoryFeed";
 import CaseReport from "./pages/CaseReport";
+import EnhancedCaseReport from "./pages/EnhancedCaseReport";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
@@ -23,8 +26,11 @@ const App = () => (
           <Navigation />
           <Routes>
             <Route path="/" element={<Landing />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/case-report/:id" element={<CaseReport />} />
+            <Route path="/dashboard" element={<CategorizedDashboard />} />
+            <Route path="/dashboard/legacy" element={<Dashboard />} />
+            <Route path="/category/:categoryId" element={<CategoryFeed />} />
+            <Route path="/case-report/:id" element={<EnhancedCaseReport />} />
+            <Route path="/case-report/legacy/:id" element={<CaseReport />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
