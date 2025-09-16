@@ -2,39 +2,65 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* GCAI Design System - Professional Crisis Management Platform */
 
 @layer base {
   :root {
+    /* Core brand colors - Professional blues and crisp whites */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
+    --foreground: 220 15% 15%;
+    
+    /* Primary brand - Deep professional blue */
+    --primary: 220 85% 25%;
+    --primary-foreground: 0 0% 98%;
+    --primary-muted: 220 50% 35%;
+    
+    /* Secondary - Sophisticated blue-grays */
+    --secondary: 220 15% 95%;
+    --secondary-foreground: 220 15% 20%;
+    --secondary-dark: 220 20% 85%;
+    
+    /* Cards and surfaces */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --card-foreground: 220 15% 15%;
+    --card-border: 220 15% 90%;
+    
+    /* Muted elements */
+    --muted: 220 15% 96%;
+    --muted-foreground: 220 10% 50%;
+    
+    /* Accent - Professional highlights */
+    --accent: 200 90% 45%;
+    --accent-foreground: 0 0% 98%;
+    
+    /* Alert system colors */
+    --critical: 0 85% 55%;
+    --critical-foreground: 0 0% 98%;
+    --warning: 35 90% 55%;
+    --warning-foreground: 0 0% 98%;
+    --stable: 140 70% 45%;
+    --stable-foreground: 0 0% 98%;
+    
+    /* UI elements */
+    --border: 220 15% 88%;
+    --input: 220 15% 95%;
+    --ring: 220 85% 25%;
+    --destructive: 0 85% 55%;
+    --destructive-foreground: 0 0% 98%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-muted)));
+    --gradient-hero: linear-gradient(135deg, hsl(220 85% 25%) 0%, hsl(200 90% 45%) 100%);
+    --gradient-surface: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(220 15% 98%) 100%);
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 4px -1px hsl(220 15% 15% / 0.1);
+    --shadow-md: 0 4px 12px -2px hsl(220 15% 15% / 0.15);
+    --shadow-lg: 0 8px 25px -5px hsl(220 15% 15% / 0.2);
+    
+    /* Interactive states */
+    --hover-primary: 220 85% 22%;
+    --hover-secondary: 220 15% 90%;
 
     --radius: 0.5rem;
 
@@ -100,6 +126,60 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+}
+
+@layer components {
+  /* Hero section styles */
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+  
+  .surface-gradient {
+    background: var(--gradient-surface);
+  }
+  
+  /* Alert status indicators */
+  .alert-critical {
+    @apply text-white;
+    background-color: hsl(var(--critical));
+  }
+  
+  .alert-warning {
+    @apply text-white;
+    background-color: hsl(var(--warning));
+  }
+  
+  .alert-stable {
+    @apply text-white;
+    background-color: hsl(var(--stable));
+  }
+  
+  /* Professional shadows */
+  .shadow-professional {
+    box-shadow: var(--shadow-lg);
+  }
+  
+  /* Animated elements */
+  .fade-in {
+    animation: fadeIn 0.6s ease-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Crisis map styles */
+  .crisis-map {
+    background: linear-gradient(135deg, hsl(220 15% 98%) 0%, hsl(220 15% 95%) 100%);
+    border: 2px solid hsl(var(--border));
   }
 }
